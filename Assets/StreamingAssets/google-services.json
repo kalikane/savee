@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "829447256981",
+    "firebase_url": "https://saveexpressions.firebaseio.com",
+    "project_id": "saveexpressions",
+    "storage_bucket": "saveexpressions.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829447256981:android:d912997c4d47066e99549c",
+        "android_client_info": {
+          "package_name": "com.wakny.SaveExpression"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829447256981-62kurblo62t549ctn2r8s2ls423bgbhf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWtVzzZsgRThkPiQc-smPT-m9uykPIeQU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829447256981-62kurblo62t549ctn2r8s2ls423bgbhf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
