@@ -26,7 +26,7 @@ public class AuthManager : ScriptableObject
     /// <summary>
     /// Le user firebase courant.
     /// </summary>
-    public static Firebase.Auth.FirebaseUser curentUser;
+    public static Firebase.Auth.FirebaseUser currentUser;
 
     /// <summary>
     /// booleen qui à True l'utilisateur est authentifié à False il ne l'est pas.
@@ -49,9 +49,16 @@ public class AuthManager : ScriptableObject
     /// </summary>
     public void InitializeFirebase()
     {
+        //récupération de l'instace par défaut.
         auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+
+        //Souscription à l'évènement StateChanged.
         auth.StateChanged += AuthStateChanged;
+
+        //Souscription à l'évènement IdTokenChanged
         auth.IdTokenChanged += IdTokenChanged;
+
+
         AuthStateChanged(this, null);
 
         #region Facebook_Initialisation
@@ -66,7 +73,6 @@ public class AuthManager : ScriptableObject
             FB.ActivateApp();
         }
         #endregion
-
     }
 
 
@@ -77,16 +83,24 @@ public class AuthManager : ScriptableObject
     /// <param name="eventArgs"></param>
     void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
+        
         Firebase.Auth.FirebaseAuth senderAuth = sender as Firebase.Auth.FirebaseAuth;
+
         Firebase.Auth.FirebaseUser user = null;
 
+        //si senderAuth est null on récupère le user à l'aide de la clé senderAuth.App.Name.
         if (senderAuth != null)
             userByAuth.TryGetValue(senderAuth.App.Name, out user);
 
+        //Si le senderAuth équivaut à l'auth par défaut que nous avons récupérés pendant l'initialisation
+        // et si le user présent dans la propriété currentUser du senderAut est différet du user.
         if (senderAuth == auth && senderAuth.CurrentUser != user)
         {
+            //test logique nous dit l'utilisateur est déja authentifié.
             signedIn = user != senderAuth.CurrentUser && senderAuth.CurrentUser != null;
 
+            // si l'utilisateur n'est pas authentifié mais le user qu'on a récupéré exist quand même
+            // on ramene l'utilisateur à l'interface de connexion.
             if (!signedIn && user != null)
             {
                 Debug.Log("Signed out " + user.UserId);
@@ -95,8 +109,9 @@ public class AuthManager : ScriptableObject
 
             }
 
+            
             user = senderAuth.CurrentUser;
-            curentUser = user;
+            currentUser = user;
             userByAuth[senderAuth.App.Name] = user;
 
             if (signedIn)

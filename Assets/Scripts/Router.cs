@@ -51,5 +51,7 @@ public class Router : MonoBehaviour
     public void OnChildAdded(object _payload, EventArgs e)
     {
         childAdded = true;
+        Debug.Log("Child Added");
+
     }
 }

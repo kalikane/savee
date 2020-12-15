@@ -31,13 +31,12 @@ public class FormManager : MonoBehaviour
         if (!string.IsNullOrWhiteSpace(expression) && !string.IsNullOrWhiteSpace(meaningOfExrpession))
         {
 
-            //Expression expression = new Expression(newExpression.text, meaning.text, AuthManager.curentUser.UserId);
-            //DataBaseManager.sharedInstance.CreaNewExpression(expression);
+            var ex = new Expression(newExpression.text, meaning.text, AuthManager.currentUser.UserId);
+            DataBaseManager.sharedInstance.CreaNewExpression(ex);
         }
         else
         {
             Alert.Instance.OkAlert("Error", "Please you have to add and expression with its meaning.");
         }
-
     }
 }
