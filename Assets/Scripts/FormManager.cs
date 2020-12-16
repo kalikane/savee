@@ -30,7 +30,7 @@ public class FormManager : MonoBehaviour
 
         if (!string.IsNullOrWhiteSpace(expression) && !string.IsNullOrWhiteSpace(meaningOfExrpession))
         {
-
+            Router.childAdded = true;
             var ex = new Expression(newExpression.text, meaning.text, AuthManager.currentUser.UserId);
             DataBaseManager.sharedInstance.CreaNewExpression(ex);
         }

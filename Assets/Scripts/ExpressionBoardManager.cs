@@ -23,12 +23,12 @@ public class ExpressionBoardManager : MonoBehaviour
     /// </summary>
     public GameObject parent;
 
-  
+
 
 
     public static ExpressionBoardManager instance;
 
-    
+
     public void Awake()
     {
         //Récupéré l'instance.
@@ -81,26 +81,14 @@ public class ExpressionBoardManager : MonoBehaviour
 
         if (userExpressionsOnFirebaseDataBase.Count > 0)
         {
-            //Debug.Log(expressionsListPrefab.Count);
-
-            ////userExpressions = expressionsList.Where(e => e.uid == AuthManager.curentUser.UserId).ToList();
-
-            //foreach (var e in expressionsListPrefab)
-            //{
-            //    if (e.uid == AuthManager.currentUser.UserId)
-            //        userExpressionsOnFirebaseDataBase.Add(e);
-            //}
-
-
             for (int i = 0; i < userExpressionsOnFirebaseDataBase.Count; i++)
             {
                 var _exp = userExpressionsOnFirebaseDataBase[i];
-                Debug.Log($"e{1}:{_exp.expression}");
+                //Debug.Log($"e{1}:{_exp.expression}");
                 var expressionPrefab = pool.GetObject();
                 expressionPrefab.transform.SetParent(parent.transform, false);
                 expressionPrefab.GetComponent<ExpressionPrefabScript>().SetUpExpression(_exp);
             }
-            
         }
     }
 
@@ -114,11 +102,10 @@ public class ExpressionBoardManager : MonoBehaviour
         {
             i++;
             pool.ReturnObject(prefab.gameObject);
-            Debug.Log($"i={i}");
         }
     }
 
-   
+
 
     private void OnEnable()
     {

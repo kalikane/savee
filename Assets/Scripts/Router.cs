@@ -19,7 +19,7 @@ public class Router : MonoBehaviour
     /// <summary>
     /// Booleen qui nous informe si une nouvelle expression  a été ajouté.
     /// </summary>
-    public static bool childAdded = true;
+    public static bool childAdded = false;
 
 
 

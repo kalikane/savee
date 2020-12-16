@@ -43,7 +43,7 @@ public class DataBaseManager : ScriptableObject
     }
 
     // Créer une nouvelle expression dans la bd.
-    public async void  CreaNewExpression(Expression e)
+    public async void CreaNewExpression(Expression e)
     {
         // Génération d'une clé aléatoire.
         var newKey = Router.baseRef.Push().Key;
@@ -53,7 +53,6 @@ public class DataBaseManager : ScriptableObject
 
         // Sauvegarde de l'expression dans la BD.
         await Router.ExpressionsWithId(newKey).SetRawJsonValueAsync(json);
-        Router.childAdded = true;
     }
 
     // Récupération des expressions.
@@ -84,27 +83,31 @@ public class DataBaseManager : ScriptableObject
                 }
 
                 GetUserExpressions();
-                SaveJsonData();
                 // Enregistrer la liste des expressions  dans un json.
             }
         });
+        SaveJsonData();
 
     }
 
 
-    IEnumerator SaveJsonData()
+    public static void SaveJsonData()
     {
+        Debug.Log("Données sauvegardés dans le fichier JSON");
+
         string expressionDataJson = JsonHelper.ToJson(ExpressionBoardManager.instance.userExpressionsOnFirebaseDataBase, true);
-        Debug.Log("expressionDataJson:" + expressionDataJson);
         try
         {
+            Debug.Log($"Le user a {ExpressionBoardManager.instance.userExpressionsOnFirebaseDataBase.Count} expréssion");
+            Debug.Log("expressionDataJson:" + expressionDataJson);
+
             File.WriteAllText(Application.dataPath + pathToExpressionJsonData, expressionDataJson);
         }
         catch (Exception e)
         {
             Debug.LogError(e);
         }
-        yield return null;
+
     }
 
     /// <summary>
@@ -112,6 +115,7 @@ public class DataBaseManager : ScriptableObject
     /// </summary>
     public static void GetUserExpressions()
     {
+        Debug.Log("Expressions de l'utilisateur récupérer");
         if (ExpressionBoardManager.instance == null)
             return;
 
@@ -125,7 +129,7 @@ public class DataBaseManager : ScriptableObject
     public static List<Expression> GetUserExpressionsFromJSonFile(string path)
     {
         //Test si le fichier exist
-        if(File.Exists(path))
+        if (File.Exists(path))
         {
             try
             {

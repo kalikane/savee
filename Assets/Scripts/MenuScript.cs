@@ -47,7 +47,6 @@ public class MenuScript : MonoBehaviour
                 {
                     ExpressionBoardManager.instance.RemoveExpressionPrefab();
                     //ExpressionBoardManager.instance.expressionsList.Clear();
-
                 }
 
                 if (addPanel)
@@ -55,7 +54,8 @@ public class MenuScript : MonoBehaviour
                 if (profilPanel)
                     profilPanel.SetActive(false);
 
-                Debug.Log("Load List Pannel");
+
+                Debug.Log("Ajout = " + Router.childAdded);
                 //await DataBaseManager.sharedInstance.GetExpressions();
                 ExpressionBoardManager.instance.OpenListExpressionPanel();
             });

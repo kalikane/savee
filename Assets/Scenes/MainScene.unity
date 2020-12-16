@@ -654,6 +654,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlertPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4241943920706149887, guid: b957145a1a71de54aba9436f417bf105,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b957145a1a71de54aba9436f417bf105, type: 3}
 --- !u!224 &1864684589 stripped
@@ -837,6 +842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AddExpressions_Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223313531102976406, guid: 25ce12d354c2b054f86d1ad5bd1dff17,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3223313531102976407, guid: 25ce12d354c2b054f86d1ad5bd1dff17,
         type: 3}
@@ -1074,6 +1084,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProfilPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 1133188369004446323, guid: 31163f81f80ba6a40ae3bb40da705041,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31163f81f80ba6a40ae3bb40da705041, type: 3}
 --- !u!1001 &7484258841085117860
@@ -1092,6 +1107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ListExpressions_Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484258840951237904, guid: c5d58ecce95567a4d824f3b3c51e51b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7484258840951237905, guid: c5d58ecce95567a4d824f3b3c51e51b0,
         type: 3}
